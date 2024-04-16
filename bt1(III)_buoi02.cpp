@@ -1,20 +1,22 @@
-//bt1 buoi 2
+//bt2(I_p2)_buoi03
 #include<bits/stdc++.h>
 using namespace std;
-int dem(string a){
-    int cnt = 0;
-    for(int i = 0; i < a.length(); i++){
-        string sub = "";
-        for(int j = i; j < a.length(); j++){
-            sub += a[j];
-            if(a.find(sub)==i) cnt++;
-        }
+long long fibo(long long n){
+    if(n<=1) return n;
+    return (fibo(n-1)+fibo(n-2)) %1000000007;
+}
+long long fibo1(long long n){
+    vector<long long> number(n+1);
+    number[0] = 0;number[1] = 1;
+    for(int i = 2; i <=  n; i++){
+        number[i] = (number[i-1] + number[i-2])%1000000007;
     }
-    return cnt;
+    return number[n];
 }
 int main()
 {
-   string a;
-   getline(cin,a);
-   cout << dem(a);
+    long long n;
+    cin >> n;
+    cout << fibo1(n);
+    
 }
